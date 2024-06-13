@@ -135,7 +135,7 @@ def best_out_degree_neighbor_search(graph, current_node, max_length, current_seq
         edge_data = graph.get_edge_data(current_node, neighbor)
         weight = edge_data['weight']
         new_sequence = current_sequence + graph.nodes[neighbor]['label'][weight:]
-        new_errors = errors + (weight - 1)
+        new_errors = errors + (len(graph.nodes[neighbor]['label']) - weight - 1)
 
         # Sprawdź, czy wierzchołek jest odwiedzony
         if neighbor in visited:
